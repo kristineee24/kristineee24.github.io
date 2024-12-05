@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Open QR Code URL</title>
+    <script>
+        window.onload = function() {
+            // The URL encoded in the QR code (from the QR link you shared)
+            const qrUrl = 'https://qr.me-qr.com/LtOv5UmF';
+
+            // Automatically redirect to the URL after a short delay
+            setTimeout(function() {
+                window.location.href = qrUrl;
+            }, 2000);  // 2 seconds delay to show the QR code before redirect
+        };
+    </script>
+</head>
+<body>
+    <h2>QR Code (Will auto open in 2 seconds)</h2>
+    <div id="qrCode"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <script>
+        // Generate QR code dynamically and display it
+        const qrUrl = 'https://qr.me-qr.com/LtOv5UmF'; // The URL from the QR code link you provided
+        const qrCodeElement = document.getElementById('qrCode');
+        QRCode.toCanvas(qrCodeElement, qrUrl, function(error) {
+            if (error) console.error(error);
+        });
+    </script>
+</body>
+</html>
